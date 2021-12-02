@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/zyfeleven/website/issues"
   },
-  "homepage": "https://github.com/zyfeleven/website#readme"
+  "homepage": "https://github.com/zyfeleven/website#readme",
+  "dependencies": {
+    "react": "^17.0.2"
+  }
 }
