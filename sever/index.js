@@ -1,7 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const authRoutes = require("./routes/auth");
 
 const PORT = 2222;
 
@@ -11,6 +13,7 @@ const errHandler = require("./handlers/error");
 app.use(cors());
 app.use(bodyParser.json());
 
+app.use("api/auth", authRoutes);
 //TODOS: all routes config
 
 //error handler
