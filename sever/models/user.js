@@ -20,10 +20,10 @@ const userSchema = new mongoose.Schema({
     profilePictureUrl:{
         type:String,
     },
-    isModified:{
-        type:boolean,
-        default:false,
-    }
+    message: [{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Message",
+    }]
 })
 
 userSchema.pre("save",async function(){
@@ -42,7 +42,7 @@ userSchema.pre("save",async function(){
 })
 
 //check if the password is valid for the account
-userSchema.method.comparePassword = async function(candidatePassword,next){
+userSchema.methods.comparePassword = async function(candidatePassword,next){
     try{
         let isMatch = await bcrypt.compare(candidatePassword,this.password);
         return isMatch;
@@ -52,5 +52,5 @@ userSchema.method.comparePassword = async function(candidatePassword,next){
 }
 
 
-const User = mongoose.model("user",userSchema);
+const User = mongoose.model("User",userSchema);
 module.exports = User;
