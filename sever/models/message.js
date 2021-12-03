@@ -11,8 +11,12 @@ const messageSchema = new mongoose.Schema({
     user:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"User",
-    }
-});
+    },
+    
+    },
+    {
+        timestamps:true,
+    });
 
 //when removing a message, also remove it from the array in User schema
 messageSchema.pre("remove",async function(next){
