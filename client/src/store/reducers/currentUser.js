@@ -3,9 +3,7 @@ import { SET_CURRENT_USER } from "../actionTypes";
 const DEFAULT_STATE = {
     isAuthenticated: false,//would change to true when user logged in
     //all the user info when logged in
-    user:{
-
-    }
+    user:{}
 };
 
 export default (state=DEFAULT_STATE,action) => {
