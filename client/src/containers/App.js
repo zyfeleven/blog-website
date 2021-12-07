@@ -9,9 +9,7 @@ const store = configureStore();
 const App = () => (
   <Provider store = {store}>
     <Router>
-      <div className="onboarding">
-        <Navbar></Navbar>
-      </div>
+        <Navbar/>
     </Router>
   </Provider>
 )
