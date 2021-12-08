@@ -22,7 +22,7 @@ const Main = props => {
                         return (
                             <AuthForm 
                                 buttonText="Log in" 
-                                heading = "Welcome Back." 
+                                heading = "Welcome Back!" 
                                 {...props}
                             />
                             )}
@@ -35,8 +35,9 @@ const Main = props => {
                     render={props => {
                         return(
                             <AuthForm
+                            signUp
                             buttonText="Sign up" 
-                            heading = "Welcome!" 
+                            heading = "Welcome to sign up!" 
                             {...props}
                             />
                         )}
