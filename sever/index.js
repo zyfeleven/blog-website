@@ -16,7 +16,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-//TODOS: all routes config
+// all routes config
 app.use("api/auth", authRoutes);
 app.use("api/users/:id/messages",loginRequired, ensureUserCorrect, messageRoutes);
 
