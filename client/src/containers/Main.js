@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, withRouter, Redirect} from "react-router-dom";
 import { connect } from "react-redux";
 import HomePage from "../components/HomePage";
-import AuthForm from "../components/AuthForm";
+import AuthForm from "../components/authform";
 import { authUser } from "../store/actions/auth";
 
 

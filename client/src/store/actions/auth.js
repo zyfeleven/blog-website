@@ -17,6 +17,9 @@ export function authUser(type,userData){
                 dispatch(setCurrentUser(user));
                 resolve();
             })
+            .catch(err => {
+                reject(); // indicate the API call failed
+              });
         })
     }
 }
