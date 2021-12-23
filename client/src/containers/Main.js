@@ -26,7 +26,7 @@ const Main = props => {
                     render={props => {
                         return (
                             <AuthForm 
-                                onAuth = {authUser}
+                                onAuth = { authUser }
                                 buttonText="Log in" 
                                 heading = "Welcome Back!" 
                                 {...props}
