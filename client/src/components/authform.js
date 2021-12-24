@@ -26,7 +26,7 @@ class AuthForm extends Component{
     
     
    render() {
-    const { email, username, password, profileImageUrl } = this.state;
+    const { email, userName, password, profileImageUrl } = this.state;
     const { signUp, heading, buttonText } = this.props;
 
     return (
@@ -58,15 +58,15 @@ class AuthForm extends Component{
               />
               {signUp && (
                 <div>
-                  <label htmlFor="username">Username</label>
+                  <label htmlFor="userName">Username</label>
                   <input
                     autoComplete="off"
                     className="form-control"
-                    id="username"
-                    name="username"
+                    id="userName"
+                    name="userName"
                     onChange={this.handleChange}
                     type="text"
-                    value={username}
+                    value={userName}
                   />
                   <label htmlFor="image-url">Image URL</label>
                   <input
