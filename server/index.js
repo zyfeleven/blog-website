@@ -3,17 +3,22 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const db = require("./models");
 const authRoutes = require("./routes/auth");
 const messageRoutes = require("./routes/message");
 const {loginRequired,ensureUserCorrect} = require("./middleware/auth");
 
-const PORT = 2222;
+const PORT = process.env.PORT ||8081;
 
 //import errorHandler from handlers dir
-const errHandler = require("./handlers/error");
+const errorHandler = require("./handlers/error");
 
 app.use(cors());
 app.use(bodyParser.json());
+
+app.get("/api/auth", (req,res)=>{
+    res.send("hello");
+})
 
 
 // all routes config
@@ -34,13 +39,15 @@ app.get("/api/messages", loginRequired, async function(req,res,next){
     }
 })
 //error handler
+
 app.use(function(req,res,next){
-    let err = new Error("Not Found");
+    let err = new Error("222");
     err.status = 404;
     next(err);
 });
 
-app.use(errHandler);
+app.use(errorHandler);
+
 //listening function
 app.listen(PORT,function(){
     console.log(`Sever is starting at port ${PORT}`);

@@ -22,7 +22,7 @@ const messageSchema = new mongoose.Schema({
 messageSchema.pre("remove",async function(next){
     try{
         //find a user
-        let user = await User.findById(this.userId);
+        let user = await User.findById(this.user);
         //remove the id of the message from that user's message array
         user.message.remove(this.id);
         //save that user

@@ -53,10 +53,12 @@ exports.signup = async function(req,res,next){
             token,
         });
     }catch(err){
+        //console.log("111");
         if(err.code === 11000){
             err.message = "Sorry, the username/email address is already be token"
         }
-        return next({
+        return next(
+            {
             status:400,
             message:err.message,
         })

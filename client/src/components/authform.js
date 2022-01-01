@@ -8,7 +8,7 @@ class AuthForm extends Component{
             email:"",
             userName:"",
             password:"",
-            profileImageUrl:"",
+            profilePictureUrl:"",
         }
     }
 
@@ -17,6 +17,8 @@ class AuthForm extends Component{
         const authType = this.props.signUp ? "signup" : "signin";
         this.props.onAuth(authType, this.state).then(() => {
           console.log("LOGGED IN!");
+        }).catch(() => {
+          return;
         });
       };
     
@@ -26,8 +28,12 @@ class AuthForm extends Component{
     
     
    render() {
-    const { email, userName, password, profileImageUrl } = this.state;
-    const { signUp, heading, buttonText } = this.props;
+    const { email, userName, password, profilePictureUrl } = this.state;
+    const { signUp, heading, buttonText, errors, history, removeError } = this.props;
+
+    history.listen(() => {
+      removeError();
+    });
 
     return (
       <div>
@@ -35,7 +41,9 @@ class AuthForm extends Component{
           <div className="col-md-6">
             <form onSubmit={this.handleSubmit}>
               <h2>{heading}</h2>
-
+              {errors.message && (
+                <div className="alert alert-danger">{errors.message}</div>
+              )}
               <label htmlFor="email">E-mail</label>
               <input
                 autoComplete="off"
@@ -73,10 +81,10 @@ class AuthForm extends Component{
                     autoComplete="off"
                     className="form-control"
                     id="image-url"
-                    name="profileImageUrl"
+                    name="profilePictureUrl"
                     onChange={this.handleChange}
                     type="text"
-                    value={profileImageUrl}
+                    value={profilePictureUrl}
                   />
                 </div>
               )}
