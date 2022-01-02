@@ -40,9 +40,8 @@ exports.signup = async function(req,res,next){
     try{
         //create a user
         console.log(req.body);
-        let user = new db.User(req.body);
+        let user = await db.User.create(req.body);
         console.log("try to sign up 1");
-        await user.save();
         console.log("saved!")
         let {id,userName,profilePictureUrl} = user;
         console.log("try to sign up 2");
