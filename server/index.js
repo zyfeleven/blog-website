@@ -7,6 +7,7 @@ const db = require("./models");
 const authRoutes = require("./routes/auth");
 const messageRoutes = require("./routes/message");
 const {loginRequired,ensureUserCorrect} = require("./middleware/auth");
+const {signup,signin} = require("./handlers/auth");
 
 const PORT = process.env.PORT ||8081;
 
@@ -22,7 +23,9 @@ app.get("/api/auth", (req,res)=>{
 
 
 // all routes config
-app.use("api/auth", authRoutes);
+//app.use("api/auth", authRoutes);
+app.post("/api/auth/signup",signup);
+app.post("/api/auth/signin",signin);
 app.use("api/users/:id/messages",loginRequired, ensureUserCorrect, messageRoutes);
 
 app.get("/api/messages", loginRequired, async function(req,res,next){
@@ -30,7 +33,7 @@ app.get("/api/messages", loginRequired, async function(req,res,next){
         let messages = await db.Message.find()
         .sort({createAt:"desc"})
         .populate("user", {
-            username:true,
+            userName:true,
             profilePictureUrl:true,
         });
         return res.status(200).json(messages);

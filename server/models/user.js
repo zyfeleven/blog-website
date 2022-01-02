@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
         required:true,
         unique:true,
     },
-    username:{
+    userName:{
         type:String,
         required:true,
         unique:true,
@@ -35,8 +35,10 @@ userSchema.pre("save",async function(){
         //hash the password and save it
         let hashedPassword = await bcrypt.hash(this.password,10);
         this.password = hashedPassword;
-        return next();
+        console.log("password is hashed")
+        return;
     }catch(err){
+        console.log("pre catch an error");
         return next(err);
     }
 })
