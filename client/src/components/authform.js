@@ -15,9 +15,11 @@ class AuthForm extends Component{
     handleSubmit = e => {
         e.preventDefault();
         const authType = this.props.signUp ? "signup" : "signin";
-        this.props.onAuth(authType, this.state).then(() => {
-          console.log("LOGGED IN!");
-        }).catch(() => {
+        this.props.onAuth(authType, this.state)
+        .then(() => {
+          this.props.history.push("/");
+        })
+        .catch(() => {
           return;
         });
       };
@@ -25,6 +27,13 @@ class AuthForm extends Component{
       handleChange = e => {
         this.setState({ [e.target.name]: e.target.value });
       };
+
+      removeData = e => {
+        this.setState({email:"",
+        userName:"",
+        password:"",
+        profilePictureUrl:"",});
+      }
     
     
    render() {
@@ -32,6 +41,11 @@ class AuthForm extends Component{
     const { signUp, heading, buttonText, errors, history, removeError } = this.props;
 
     history.listen(() => {
+      // this.setState({email:"",
+      //   userName:"",
+      //   password:"",
+      //   profilePictureUrl:"",});
+      this.removeData();
       removeError();
     });
 
