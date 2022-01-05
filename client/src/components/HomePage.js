@@ -12,8 +12,18 @@ const HomePage = ({currentUser}) => {
         );
     }
     return(
-        <div>
-            <h1>Welcome to your personal Page</h1>
+        <div className="container">
+            <div className="col">
+                <h1>Welcome to your personal Page</h1>
+            </div>
+            <div className="col">
+                <ul title="personal info">
+                    <li>username:`${currentUser.userName}`</li>
+                    <li>email:</li>
+                    <li>profileImage:</li>
+                </ul>
+            </div>
+            
         </div>
     )
 }
