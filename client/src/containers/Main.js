@@ -5,6 +5,8 @@ import HomePage from "../components/HomePage";
 import AuthForm from "../components/authform";
 import { authUser } from "../store/actions/auth";
 import { removeError } from "../store/actions/errors";
+import withAuth from "../hocs/withAuth";
+import MessageForm from "./MessageForm";
 
 
 
@@ -54,6 +56,11 @@ const Main = props => {
                             />
                         )}
                     }
+                />
+                <Route
+                    exact
+                    path="/users/:id/messages/new"
+                    component={withAuth(MessageForm)}
                 />
             </Switch>
         </div>

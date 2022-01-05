@@ -5,6 +5,7 @@ import DefaultProfilePictureURL from "../images/yukino.jpg"
 
 const MessageItem = ({date, profilePictureURL, text, userName}) => (
     <div>
+      <li className="list-group-item">
         <img 
           src={profilePictureURL||DefaultProfilePictureURL} 
           alt={userName}
@@ -21,6 +22,7 @@ const MessageItem = ({date, profilePictureURL, text, userName}) => (
           <p>{text}</p>
           </span>
         </div>
+        </li>
     </div>
 )
 
