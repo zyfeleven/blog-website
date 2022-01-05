@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import MessageTimeLine  from "./MessageTimeLine";
 
 const HomePage = ({currentUser}) => {
     if(!currentUser.isAuthenticated){
@@ -18,12 +19,12 @@ const HomePage = ({currentUser}) => {
             </div>
             <div className="col">
                 <ul title="personal info">
-                    <li>username:`${currentUser.userName}`</li>
-                    <li>email:</li>
-                    <li>profileImage:</li>
+                    <h4>PERSONAL INFO</h4>
+                    <li>username:{currentUser.user.userName}</li>
+                    <li>profileImage:{currentUser.user.profilePictureUrl}</li>
                 </ul>
             </div>
-            
+            <MessageTimeLine/>
         </div>
     )
 }

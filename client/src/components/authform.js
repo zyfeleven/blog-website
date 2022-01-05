@@ -41,10 +41,6 @@ class AuthForm extends Component{
     const { signUp, heading, buttonText, errors, history, removeError } = this.props;
 
     history.listen(() => {
-      // this.setState({email:"",
-      //   userName:"",
-      //   password:"",
-      //   profilePictureUrl:"",});
       this.removeData();
       removeError();
     });
