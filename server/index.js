@@ -13,6 +13,7 @@ const PORT = process.env.PORT ||8081;
 
 //import errorHandler from handlers dir
 const errorHandler = require("./handlers/error");
+const { createMessage } = require("./handlers/message");
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -26,6 +27,8 @@ app.get("/api/auth", (req,res)=>{
 //app.use("api/auth", authRoutes);
 app.post("/api/auth/signup",signup);
 app.post("/api/auth/signin",signin);
+app.post("/api/users/:id/messages",createMessage);
+
 app.use("api/users/:id/messages",loginRequired, ensureUserCorrect, messageRoutes);
 
 app.get("/api/messages", loginRequired, async function(req,res,next){

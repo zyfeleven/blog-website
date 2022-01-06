@@ -14,8 +14,8 @@ class MessagesList extends Component {
                 key={m._id} 
                 date={m.createAt} 
                 text={m.text} 
-                userName={m.user.username}
-                profilePictureURL={m.user.profilePictureURL}  
+                userName={m.user.userName}
+                profilePictureUrl={m.user.profilePictureUrl}  
             />
         ))
         return (
