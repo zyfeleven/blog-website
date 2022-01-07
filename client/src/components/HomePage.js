@@ -14,16 +14,6 @@ const HomePage = ({currentUser}) => {
     }
     return(
         <div className="container">
-            <div className="col">
-                <h1>Welcome to your personal Page</h1>
-            </div>
-            {/* <div className="col">
-                <ul title="personal info">
-                    <h4>PERSONAL INFO</h4>
-                    <li>username:{currentUser.user.userName}</li>
-                    <li>profileImage:{currentUser.user.profilePictureUrl}</li>
-                </ul>
-            </div> */}
             <MessageTimeLine 
                 profilePictureUrl={currentUser.user.profilePictureUrl}
                 userName = {currentUser.user.userName}    
