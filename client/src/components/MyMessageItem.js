@@ -16,7 +16,7 @@ const MyMessageItem = ({date, profilePictureUrl, text, userName, removeMessage,
           className="timeline-image"
         />
         <div className="message-area">
-          <Link to="/">@{userName}</Link>
+          <Link to="/">@{userName}&nbsp;</Link>
           <span className="text-muted">
             <Moment className="text-muted" format="YYYY MM DD">  
               {date}

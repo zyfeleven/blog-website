@@ -30,7 +30,7 @@ userSchema.pre("save",async function(){
     try{
         //if the passwrod has not been modified then just continue
         if(!this.isModified("password")){
-            return next();
+            return;
         }
         //hash the password and save it
         let hashedPassword = await bcrypt.hash(this.password,10);

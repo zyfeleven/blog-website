@@ -64,3 +64,7 @@ a.btn.btn-danger:hover {
 .navbar-header {
   margin: 0 auto;
 }
+
+.message-item {
+  text-decoration: none;
+}
