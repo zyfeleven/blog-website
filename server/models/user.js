@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema({
     }]
 })
 
-userSchema.pre("save",async function(){
+userSchema.pre("save",async function(next){
     try{
         //if the passwrod has not been modified then just continue
         if(!this.isModified("password")){
@@ -36,7 +36,7 @@ userSchema.pre("save",async function(){
         let hashedPassword = await bcrypt.hash(this.password,10);
         this.password = hashedPassword;
         console.log("password is hashed")
-        return;
+        return next();
     }catch(err){
         console.log("pre catch an error");
         return next(err);
